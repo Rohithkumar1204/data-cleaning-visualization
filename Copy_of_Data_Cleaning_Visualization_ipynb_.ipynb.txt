@@ -1,0 +1,83 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "private_outputs": true,
+      "cell_execution_strategy": "setup"
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "EWAbdTpM5Pn7"
+      },
+      "outputs": [],
+      "source": [
+        "!git clone https://github.com/Rohithkumar1204/data-cleaning-visualization.git"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "%cd data-cleaning-visualization\n",
+        "!pip install pandas matplotlib seaborn\n",
+        "!python data_cleaning.py"
+      ],
+      "metadata": {
+        "id": "D9KTYrfm5mXD"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "import pandas as pd\n",
+        "import matplotlib.pyplot as plt\n",
+        "import seaborn as sns\n",
+        "\n",
+        "df = pd.read_csv(\"cleaned_data.csv\")\n",
+        "\n",
+        "df.plot(x=\"Name\", y=\"Marks\", kind=\"bar\",\n",
+        "        title=\"Student Marks\", legend=False)\n",
+        "plt.ylabel(\"Marks\")\n",
+        "plt.tight_layout()\n",
+        "plt.show()\n",
+        "\n",
+        "sns.boxplot(x=df[\"Marks\"])\n",
+        "plt.title(\"Marks Distribution\")\n",
+        "plt.show()"
+      ],
+      "metadata": {
+        "id": "WVFml5Iu6NeB"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "from google.colab import files\n",
+        "files.download(\"cleaned_data.csv\")"
+      ],
+      "metadata": {
+        "id": "keM7MuTI6vVB"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
